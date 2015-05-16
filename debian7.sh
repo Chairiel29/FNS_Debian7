@@ -172,8 +172,8 @@ service dropbear restart
 
 # upgrade dropbear 2014
 apt-get install zlib1g-dev
-wget https://github.com/ForNesiaFreak/FNS/raw/master/go/dropbear-2014.63.tar.bz2
-bzip2 -cd dropbear-2014.63.tar.bz2  | tar xvf -
+wget https://matt.ucc.asn.au/dropbear/dropbear-2015.67.tar.bz2
+bzip2 -cd dropbear-2015.67.tar.bz2  | tar xvf -
 cd dropbear-2014.63
 ./configure
 make && make install
@@ -231,7 +231,6 @@ wget -O user-list.sh "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian
 wget -O /etc/issue.net "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/banner"
 echo "0 0 * * * root /root/user-expired.sh" > /etc/cron.d/user-expired
 #echo "@reboot root /root/userlimit.sh" > /etc/cron.d/userlimit
-echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
 echo "* * * * * service dropbear restart" > /etc/cron.d/dropbear
 #sed -i '$ i\screen -AmdS check /root/autokill.sh' /etc/rc.local
 chmod +x bench-network.sh
